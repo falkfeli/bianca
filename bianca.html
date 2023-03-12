@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Birthday Quiz</title>
+  <style>
+    body {
+      background-color: #F7D1C6;
+    }
+    h1 {
+      text-align: center;
+      color: #B80C09;
+      text-shadow: 2px 2px #FFF;
+    }
+    form {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin: 10px 0;
+      color: #B80C09;
+    }
+    input[type="text"] {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 20px;
+      box-shadow: 1px 1px 5px #AAA;
+      font-size: 18px;
+      width: 300px;
+    }
+    button[type="button"] {
+      background-color: #B80C09;
+      color: #FFF;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+    button[type="button"]:hover {
+      background-color: #FFF;
+      color: #B80C09;
+    }
+    #result {
+      text-align: center;
+      margin-top: 30px;
+    }
+    #cat-image {
+      display: none;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Whose Birthday is Today?</h1>
+  <form>
+    <label for="name">Enter Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <button type="button" onclick="checkAnswer()">Check</button>
+  </form>
+  <div id="result"></div>
+  <img id="cat-image" src="" alt="cat image">
+
+  <script>
+    function checkAnswer() {
+      // Get the user's input from the form
+      var inputName = document.getElementById("name").value.trim().toLowerCase();
+
+      // Check if the input is equal to the correct answer
+      if (inputName === "bianca") {
+        // If the input is correct, display a success message and show a happy cat image
+        document.getElementById("result").innerHTML = "<p>That is correct!</p>";
+        document.getElementById("cat-image").src = "https://media.giphy.com/media/sIIhZliB2McAo/giphy.gif";
+        document.getElementById("cat-image").style.display = "block";
+      } else {
+        // If the input is incorrect, display an error message and show a sad cat image
+        document.getElementById("result").innerHTML = "<p>That is not correct - try again.</p>";
+        document.getElementById("cat-image").src = "https://media.giphy.com/media/yFQ0ywscgobJK/giphy.gif";
+        document.getElementById("cat-image").style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
